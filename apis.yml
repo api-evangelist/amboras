@@ -1,7 +1,30 @@
 aid: amboras
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source: []
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/amboras.png
 name: Amboras
-description: Amboras is a company surfaced as a portfolio company of y-combinator and added to the API
-  Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Amboras is an AI-native e-commerce platform - positioned as "the AI-native
+  Shopify" - that puts an entire online store on autopilot. Merchants build or
+  rebuild a storefront by talking to AI in natural language, and Amboras then
+  autonomously generates design, copy, and product imagery, runs generative A/B
+  tests, adjusts pricing and offers, and reads first-party analytics to
+  continuously optimize conversion rate, retention, and average order value.
+  It includes integrated checkout via Stripe and PayPal and first-party
+  session, funnel, and revenue tracking with no third-party pixels. Founded in
+  2025 in San Francisco by Imad and Amin Mokadem, Amboras is a Y Combinator
+  Spring 2026 (P26) company. As of this profile the company publishes no public
+  developer API, SDK, or API documentation - this record captures its public
+  web and product surface only.
 url: https://raw.githubusercontent.com/api-evangelist/amboras/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -14,9 +37,49 @@ created: '2026-07-17'
 modified: '2026-07-17'
 tags:
 - Company
+- E-Commerce
+- AI
+- Generative AI
+- Automation
+- Conversion Rate Optimization
+- Retail
+- No-Code Store Builder
+- Y Combinator
 apis: []
+common:
+- type: TrustCenter
+  url: security/amboras-trust-center.yml
+- type: VulnerabilityDisclosure
+  url: security/amboras-vulnerability-disclosure.yml
+- type: Security
+  url: https://www.amboras.com/security
+- type: Compliance
+  url: https://www.amboras.com/security
+- type: DomainSecurity
+  url: security/amboras-domain-security.yml
+- type: Website
+  url: https://www.amboras.com/
+- type: Documentation
+  url: https://www.amboras.com/what-is-amboras
+- type: Pricing
+  url: https://www.amboras.com/pricing
+- type: SignUp
+  url: https://www.amboras.com/register
+- type: Login
+  url: https://admin.amboras.com/
+- type: TermsOfService
+  url: https://www.amboras.com/terms
+- type: PrivacyPolicy
+  url: https://www.amboras.com/privacy
+- type: StatusPage
+  url: https://www.amboras.com/status
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence
