@@ -22,9 +22,14 @@ description: >-
   It includes integrated checkout via Stripe and PayPal and first-party
   session, funnel, and revenue tracking with no third-party pixels. Founded in
   2025 in San Francisco by Imad and Amin Mokadem, Amboras is a Y Combinator
-  Spring 2026 (P26) company. As of this profile the company publishes no public
-  developer API, SDK, or API documentation - this record captures its public
-  web and product surface only.
+  Spring 2026 (P26) company. Amboras publishes no developer portal, API
+  reference, OpenAPI or GraphQL schema, but it does operate a real machine
+  surface: a multi-tenant Medusa v2 backend at api.amboras.com that every
+  storefront calls with a publishable key plus an X-Store-Environment-ID tenant
+  header, a first-party npm scope of 33 TypeScript packages (@amboras-dev)
+  implementing a 24-slot storefront plugin system, and a public GitHub
+  organization of 458 provisioned Next.js storefront repositories that each ship
+  Amboras-authored agent operating instructions.
 url: https://raw.githubusercontent.com/api-evangelist/amboras/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -34,7 +39,7 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-08-13'
 tags:
 - Company
 - E-Commerce
@@ -45,7 +50,46 @@ tags:
 - Retail
 - No-Code Store Builder
 - Y Combinator
-apis: []
+- Agentic Commerce
+- Storefront
+- Payments
+- Checkout
+- Analytics
+- Headless Commerce
+- Medusa
+- Plugins
+- Multi-Tenant
+apis:
+- name: Amboras Storefront Backend
+  description: >-
+    The multi-tenant commerce backend Amboras operates at api.amboras.com. Every
+    Amboras-built storefront calls it through the Medusa JS SDK, sending a
+    publishable API key (x-publishable-api-key, pk_ prefix) plus an
+    X-Store-Environment-ID header that routes the query to that merchant's store
+    database - Amboras's own storefront template README describes it as the
+    "shared Medusa Backend Orchestrator". The contract shape is upstream Medusa
+    v2 (/store/* and /admin/*); Amboras publishes no OpenAPI of its own, so no
+    spec is captured here. Amboras layers its own endpoints on top:
+    /store/product-extensions/products/{id}/variants for compare-at prices,
+    /store/analytics/events for first-party analytics ingest, and
+    /store/stripe-connect. GET /health returns {"status":"ok"} anonymously; every
+    other probed path returns 400 (publishable key required) or 401.
+  humanURL: https://github.com/Amboras
+  baseURL: https://api.amboras.com
+  tags:
+  - E-Commerce
+  - Storefront
+  - Medusa
+  - Multi-Tenant
+  properties:
+  - type: Documentation
+    url: https://github.com/Amboras/store-my-store-ju0t/blob/main/storefront/CLAUDE.md
+  - type: Authentication
+    url: authentication/amboras-authentication.yml
+  - type: Conventions
+    url: conventions/amboras-conventions.yml
+  - type: ErrorCatalog
+    url: errors/amboras-problem-types.yml
 common:
 - type: TrustCenter
   url: security/amboras-trust-center.yml
@@ -73,13 +117,47 @@ common:
   url: https://www.amboras.com/privacy
 - type: StatusPage
   url: https://www.amboras.com/status
+- type: Support
+  url: https://www.amboras.com/contact
+- type: GitHubOrganization
+  url: https://github.com/Amboras
+- type: Authentication
+  url: authentication/amboras-authentication.yml
+- type: Conventions
+  url: conventions/amboras-conventions.yml
+- type: ErrorCatalog
+  url: errors/amboras-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/amboras-lifecycle.yml
+- type: Conformance
+  url: conformance/amboras-conformance.yml
+- type: ChangeLog
+  url: changelog/amboras-changelog.yml
+- type: Plans
+  url: plans/amboras-plans-pricing.yml
+- type: Packages
+  url: packages/amboras-packages.yml
+- type: SDKs
+  url: packages/amboras-packages.yml
+- type: Components
+  url: components/amboras-components.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: LLMsTxt
+  url: llms/amboras-llms.txt
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 x-enrichment:
-  date: '2026-07-19'
-  status: backfilled
+  date: '2026-08-13'
+  status: enriched
+  artifacts_added: 13
   pass: local-v1
-  note: backfilled from .gitignore signal + verified work evidence
+  note: >-
+    Contract discovery overturned the prior "no public developer API" finding. No OpenAPI,
+    GraphQL, MCP server or agent card exists (all probed, all 404), but api.amboras.com is a
+    live multi-tenant Medusa v2 backend Amboras operates, and Amboras publishes 33 first-party
+    npm packages, a 24-slot storefront plugin contract, and its own agent operating
+    instructions in 458 public storefront repositories.
