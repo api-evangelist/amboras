@@ -1,0 +1,91 @@
+generated: '2026-08-13'
+method: searched
+source: https://github.com/Amboras/store-my-store-ju0t/blob/main/storefront/CLAUDE.md
+docs:
+  - https://www.amboras.com/security
+  - https://github.com/Amboras/store-my-store-ju0t/blob/main/README.md
+  - https://github.com/Amboras/store-my-store-ju0t/blob/main/storefront/CLAUDE.md
+note: >-
+  Amboras publishes no OpenAPI, so this profile is not derived from securitySchemes. It is
+  read from two provider-published sources - the /security page on amboras.com and the
+  storefront template Amboras ships in its own public GitHub organization - and confirmed
+  against live unauthenticated probes of https://api.amboras.com on 2026-08-13. The backend
+  is a multi-tenant Medusa v2 deployment Amboras operates; the auth mechanisms below are the
+  ones Amboras's own documentation instructs its storefronts to use.
+base_url: https://api.amboras.com
+schemes:
+  - id: publishable-api-key
+    type: apiKey
+    in: header
+    name: x-publishable-api-key
+    applies_to: Store API (/store/*)
+    key_prefix: pk_
+    required: true
+    evidence: >-
+      GET https://api.amboras.com/store/products with no header returns HTTP 400
+      {"type":"not_allowed","message":"Publishable API key required in the request header:
+      x-publishable-api-key. You can manage your keys in settings in the dashboard."}
+      (probed 2026-08-13). Amboras's own storefront template documents the value as
+      NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY=pk_xxx, injected automatically by the dev
+      orchestrator during store provisioning.
+  - id: store-environment-id
+    type: apiKey
+    in: header
+    name: X-Store-Environment-ID
+    applies_to: every call, Store and Admin
+    required: true
+    role: tenant selector, not a credential
+    evidence: >-
+      "The storefront sends X-Store-Environment-ID header on every Medusa API call via the
+      JS SDK's globalHeaders. The Medusa Backend Orchestrator routes queries to the correct
+      store database." - Amboras storefront template README. This header is what makes the
+      single api.amboras.com host multi-tenant; the CLAUDE.md notes the custom
+      product-extensions endpoint "must include both headers".
+  - id: admin-bearer
+    type: http
+    scheme: bearer
+    bearer_format: JWT
+    applies_to: Admin API (/admin/*)
+    evidence: >-
+      GET https://api.amboras.com/admin returns HTTP 401 {"message":"Unauthorized"}
+      (probed 2026-08-13). The /security page states "JWT-based authentication with refresh
+      tokens" and "httpOnly cookies for secure token storage".
+  - id: customer-emailpass
+    type: password
+    applies_to: storefront customer accounts
+    evidence: >-
+      Amboras's published customer instructions name the exact calls -
+      sdk.auth.login("customer", "emailpass", { email, password }) and
+      sdk.auth.register("customer", "emailpass", { email, password }) - and state
+      "Customer auth uses Medusa's built-in auth system, not Supabase" and "Session tokens
+      are handled via the Medusa JS SDK automatically".
+  - id: oauth-social
+    type: oauth2
+    applies_to: Amboras admin dashboard sign-in
+    providers:
+      - Google
+      - GitHub
+    evidence: >-
+      "OAuth integration (Google, GitHub)" listed under Authentication and access control on
+      https://www.amboras.com/security. No authorization-server metadata is published -
+      /.well-known/openid-configuration and /.well-known/oauth-authorization-server return
+      404 on www., api. and admin.amboras.com - and no scope reference is documented, so no
+      scopes/ artifact is emitted.
+access_control:
+  rbac: true
+  roles:
+    - Admin
+    - Member
+  scope: per-store permissions
+  mfa: available
+  evidence: >-
+    "Role-based access control (RBAC)" and "Multi-factor authentication (MFA) available" on
+    /security; the 2026-05-28 changelog entry "Invite your team" documents "Admin or Member
+    roles and per-store permissions. Email invites, token-based onboarding".
+  scim: enterprise-tier only
+gaps:
+  - No published API reference, developer portal or OpenAPI describing these schemes; the
+    only machine-adjacent documentation is the storefront template Amboras publishes on GitHub.
+  - No OAuth scope reference and no authorization-server metadata document.
+  - Publishable keys are described as managed "in settings in the dashboard" (admin.amboras.com),
+    which is behind a merchant login - key issuance is not self-service documented.

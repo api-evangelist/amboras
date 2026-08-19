@@ -1,0 +1,68 @@
+generated: '2026-08-13'
+method: searched
+source: https://www.amboras.com/changelog
+docs:
+  - https://www.amboras.com/changelog
+  - https://www.amboras.com/status
+  - https://www.amboras.com/pricing
+  - https://www.amboras.com/terms
+note: >-
+  Amboras runs a continuous-delivery product with a human changelog and a first-party status
+  page. It publishes no API versioning policy, no deprecation policy, no Sunset/Deprecation
+  header commitment (RFC 8594) and no public SLA - the only SLA reference is "Custom
+  contract and SLA tailored to your business" on the Enterprise tier. Because there is no
+  deprecation policy, NO Deprecation pointer is emitted in apis.yml.
+versioning:
+  scheme: none
+  api_versioned: false
+  detail: >-
+    Routes on api.amboras.com are unversioned (/store/*, /admin/*). No version header, no
+    dated versions, no version negotiation. The npm plugin packages under @amboras-dev do
+    carry semver (0.1.0 through 3.1.7) and are the only versioned surface Amboras ships.
+deprecation:
+  policy_published: false
+  sunset_header: not published
+  deprecation_header: not published
+  notice_period: null
+  detail: >-
+    No deprecation policy page exists on amboras.com, and no deprecation or sunset signal
+    was observed on any probed response. This is unsurprising for a company whose first
+    public artifact is dated 2026-04-10, but it is recorded as an absence rather than
+    omitted.
+status_page:
+  url: https://www.amboras.com/status
+  first_party: true
+  http_status: 200
+  probed: '2026-08-13'
+  health_endpoint: https://api.amboras.com/health
+  health_response: '{"status":"ok"}'
+  detail: >-
+    The status page is served by Amboras itself at /status rather than a third-party
+    provider (no Statuspage, Better Stack or Instatus host exists). At the time of this
+    probe the page rendered the message "We're catching our breath. Status feed temporarily
+    unavailable. Try again in a minute." - the route is live and is the provider's own
+    status surface, but its feed was down during the pass, so no component or incident
+    history could be read. The 2026-05-11 changelog entry "Always know when we're down"
+    records the page being shipped.
+  incident_history_readable: false
+sla:
+  published: false
+  detail: >-
+    No uptime SLA is published on any public page. The Enterprise tier lists "Custom
+    contract and SLA tailored to your business"; the commercial guarantee on the lower tiers
+    is a launch/refund guarantee, not an availability commitment - "Your store goes live
+    within 24 hours, or we build it with you. If you do not make a sale in your first 30
+    days on Launch, Grow, or Advanced, we refund every dollar."
+release_cadence:
+  style: continuous
+  evidence: >-
+    78 dated changelog entries between 2026-04-16 and 2026-06-01 - roughly 1.7 entries per
+    day over that window. No entry after 2026-06-01 as of this pass, a ~10-week gap against
+    a page that describes itself as shipping "continuously".
+  see: changelog/amboras-changelog.yml
+company_lifecycle:
+  founded: 2025
+  stage: Y Combinator Spring 2026 (P26)
+  github_org_created: '2026-04-10'
+  first_npm_publish: '2026-04-19'
+  first_changelog_entry: '2026-04-16'

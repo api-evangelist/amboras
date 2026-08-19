@@ -1,0 +1,287 @@
+generated: '2026-08-13'
+method: searched
+source: https://registry.npmjs.org/@amboras-dev/plugin-types
+docs:
+- https://www.npmjs.com/package/@amboras-dev/plugin-types
+- https://www.amboras.com/apps-and-integrations
+- https://github.com/Amboras/store-my-store-ju0t/blob/main/storefront/CLAUDE.md
+note: 'Amboras ships a client-side extension surface for its AI-built Next.js storefronts: a named SLOT
+  system plus a family of npm packages that render into those slots. This is distinct from an SDK - the
+  packages are React components and hooks mounted at fixed storefront positions, not a client library
+  for calling an API. The slot registry below is the REAL published contract, read verbatim from the compiled
+  SLOT_DISPLAY_NAMES export inside the @amboras-dev/plugin-types@1.1.0 tarball downloaded from the npm
+  registry on 2026-08-13, not reconstructed from prose. The package description states its purpose plainly:
+  "Shared slot names and base types for the Amboras plugin slot system", and the doc comment states the
+  slots are "Used by the admin placement picker to show slot options in plain language. Only visible (non-invisible)
+  slots should be presented as placement choices." No public developer guide explains how a third party
+  would author against these slots - amboras.com has no /docs, /developers or /api page (all 404) - so
+  the contract is published but undocumented.'
+loader:
+  package: '@amboras-dev/plugin-types'
+  version: 1.1.0
+  published: '2026-05-03'
+  exports:
+  - SLOT_DISPLAY_NAMES
+  - SLOT_NAMES
+  url: https://www.npmjs.com/package/@amboras-dev/plugin-types
+slot_count: 24
+visible_slot_count: 16
+slots:
+- slot: head
+  label: Head Scripts
+  location: All pages
+  invisible: true
+- slot: bodyEnd
+  label: Body End
+  location: All pages
+  invisible: true
+- slot: rootProviders
+  label: Root Providers
+  location: All pages
+  invisible: true
+- slot: homeHero
+  label: Below Hero Section
+  location: Homepage
+  invisible: false
+- slot: homeBelowFeatured
+  label: Below Featured Collections
+  location: Homepage
+  invisible: false
+- slot: pdpAfterTitle
+  label: Below Product Title
+  location: Product Page
+  invisible: false
+- slot: pdpBeforePrice
+  label: Above the Price
+  location: Product Page
+  invisible: false
+- slot: pdpBelowAddToCart
+  label: Below Add to Cart
+  location: Product Page
+  invisible: false
+- slot: pdpTrustSignals
+  label: Trust Signals Area
+  location: Product Page
+  invisible: false
+- slot: pdpAfterDescription
+  label: Below Description
+  location: Product Page
+  invisible: false
+- slot: pdpTab
+  label: Product Tab
+  location: Product Page
+  invisible: false
+- slot: pdpAnalytics
+  label: Product Analytics
+  location: Product Page
+  invisible: true
+- slot: collectionAboveGrid
+  label: Above Product Grid
+  location: Collection Page
+  invisible: false
+- slot: collectionCard
+  label: On Product Cards
+  location: Collection Page
+  invisible: false
+- slot: collectionBelowGrid
+  label: Below Product Grid
+  location: Collection Page
+  invisible: false
+- slot: cartDrawerFooter
+  label: Cart Footer
+  location: Cart
+  invisible: false
+- slot: cartUpdate
+  label: Cart Analytics
+  location: Cart
+  invisible: true
+- slot: checkoutOrderSummary
+  label: Order Summary
+  location: Checkout
+  invisible: null
+- slot: checkoutStart
+  label: Checkout Analytics
+  location: Checkout
+  invisible: true
+- slot: checkoutComplete
+  label: Order Confirmation
+  location: Order Success
+  invisible: false
+- slot: searchAboveResults
+  label: Above Search Results
+  location: Search
+  invisible: false
+- slot: accountOverview
+  label: Account Dashboard
+  location: Account
+  invisible: false
+- slot: account
+  label: Account Analytics
+  location: Account
+  invisible: true
+- slot: authSignup
+  label: Signup Page
+  location: Auth
+  invisible: false
+admin_surface:
+  name: Discover section
+  description: 'Amboras added an in-admin plugin browser: "A new home for plugins and features with live
+    previews and one-click install dialogs. Browse what Amboras can do without leaving your dashboard."
+    (changelog 2026-05-18). Plugin sets are managed per theme: "Draft and live themes can carry different
+    plugin sets without stepping on each other" (changelog 2026-05-14).'
+  source: https://www.amboras.com/changelog
+families:
+- name: Core / slot contract
+  packages:
+  - package: '@amboras-dev/plugin-types'
+    version: 1.1.0
+    published: '2026-05-03'
+    description: Shared slot names and base types for the Amboras plugin slot system
+  - package: '@amboras-dev/hello-world'
+    version: 0.1.0
+    published: '2026-04-20'
+    description: Minimal hello-world plugin used to exercise the orchestrator admin surface end-to-end.
+  - package: '@amboras-dev/demo'
+    version: 0.1.0
+    published: '2026-04-19'
+    description: Demo package to verify the publish pipeline
+- name: Payment provider UI
+  packages:
+  - package: '@amboras-dev/adyen'
+    version: 0.1.0
+    published: '2026-07-18'
+    description: Adyen payment provider UI for Amboras storefronts
+  - package: '@amboras-dev/airwallex'
+    version: 0.2.0
+    published: '2026-06-25'
+    description: Airwallex payment provider UI for Amboras storefronts
+  - package: '@amboras-dev/checkoutcom'
+    version: 0.2.2
+    published: '2026-07-18'
+    description: Checkout.com payment provider UI for Amboras storefronts
+  - package: '@amboras-dev/iyzico'
+    version: 0.2.0
+    published: '2026-07-30'
+    description: iyzico payment provider types for Amboras storefronts
+  - package: '@amboras-dev/mollie'
+    version: 0.2.0
+    published: '2026-07-20'
+    description: Mollie payment provider types for Amboras storefronts
+  - package: '@amboras-dev/momo'
+    version: 0.2.0
+    published: '2026-07-29'
+    description: MoMo payment provider types for Amboras storefronts
+  - package: '@amboras-dev/payoo'
+    version: 0.2.0
+    published: '2026-07-29'
+    description: Payoo payment provider types for Amboras storefronts
+  - package: '@amboras-dev/paystack'
+    version: 0.2.0
+    published: '2026-07-09'
+    description: Paystack payment provider UI for Amboras storefronts
+  - package: '@amboras-dev/razorpay'
+    version: 2.0.0
+    published: '2026-05-29'
+    description: Razorpay payment provider UI for Amboras storefronts
+  - package: '@amboras-dev/vnpay'
+    version: 0.1.0
+    published: '2026-07-12'
+    description: VNPay payment provider types for Amboras storefronts
+  - package: '@amboras-dev/meta-shops-checkout'
+    version: 0.2.0
+    published: '2026-06-10'
+    description: Meta Shops 'checkout on another website' handoff for Amboras storefronts — builds a fresh
+      cart (line items + discount) from the deep-link URL params and activates it for checkout
+- name: Ads + analytics pixels
+  packages:
+  - package: '@amboras-dev/ga4'
+    version: 0.3.7
+    published: '2026-08-13'
+    description: Google Analytics 4 (gtag.js + Measurement Protocol) hooks for Amboras storefronts
+  - package: '@amboras-dev/google-ads'
+    version: 1.1.3
+    published: '2026-07-29'
+    description: Google Ads (gtag.js conversion tracking + Enhanced Conversions + Consent Mode) hooks
+      for Amboras storefronts
+  - package: '@amboras-dev/meta-ads'
+    version: 3.1.7
+    published: '2026-08-07'
+    description: Meta Pixel + Conversions API hooks for Amboras storefronts
+  - package: '@amboras-dev/pinterest'
+    version: 1.2.0
+    published: '2026-07-13'
+    description: Pinterest Tag + Conversions API hooks for Amboras storefronts
+  - package: '@amboras-dev/snapchat-ads'
+    version: 2.0.0
+    published: '2026-07-27'
+    description: Snap Pixel + Snap Conversions API v3 hooks for Amboras storefronts
+  - package: '@amboras-dev/tiktok-ads'
+    version: 2.0.0
+    published: '2026-06-19'
+    description: TikTok Pixel + Events API hooks for Amboras storefronts
+  - package: '@amboras-dev/profitmetrics'
+    version: 1.0.0
+    published: '2026-07-16'
+    description: ProfitMetrics server-side hybrid integration (order sync + client bundle) for Amboras
+      storefronts
+- name: Marketing, reviews + conversion
+  packages:
+  - package: '@amboras-dev/klaviyo'
+    version: 0.5.0
+    published: '2026-06-17'
+    description: Klaviyo storefront integration for Amboras — provider, identify/track hooks, server-side
+      public-key fetcher
+  - package: '@amboras-dev/omnisend'
+    version: 1.0.1
+    published: '2026-07-18'
+    description: Omnisend browser events + slot components for Amboras storefronts
+  - package: '@amboras-dev/goaffpro'
+    version: 0.5.0
+    published: '2026-05-29'
+    description: GoAffPro affiliate-marketing storefront integration for Amboras — loader.js injection
+      + ?ref cookie capture, props-driven from the unified plugin-config registry
+  - package: '@amboras-dev/exit-intent'
+    version: 0.3.0
+    published: '2026-06-27'
+    description: Exit-intent logic layer for Amboras storefronts — hooks, config getter, and constants
+      for capturing why shoppers leave a non-empty cart
+  - package: '@amboras-dev/contact-form'
+    version: 1.0.0
+    published: '2026-05-27'
+    description: Contact form submission hook for Amboras storefronts
+  - package: '@amboras-dev/tidio'
+    version: 0.2.0
+    published: '2026-06-19'
+    description: Tidio AI chatbot storefront integration for Amboras — widget embed component
+  - package: '@amboras-dev/trustpilot'
+    version: 2.0.0
+    published: '2026-07-28'
+    description: Trustpilot TrustBox widget + invitation hooks for Amboras storefronts
+  - package: '@amboras-dev/reviews'
+    version: 0.5.0
+    published: '2026-07-10'
+    description: Product reviews hooks for Amboras storefronts
+- name: Merchandising + content
+  packages:
+  - package: '@amboras-dev/blog'
+    version: 0.2.0
+    published: '2026-06-20'
+    description: Multi-blog CMS hooks + server helpers for Amboras storefronts
+  - package: '@amboras-dev/engraving'
+    version: 0.2.0
+    published: '2026-06-22'
+    description: Engraving personalization hooks + helpers for Amboras storefronts
+  - package: '@amboras-dev/dynamic-metadata'
+    version: 1.0.0
+    published: '2026-04-29'
+    description: Server-side metadata generation + brand/product/collection fetchers for Amboras storefronts
+  - package: '@amboras-dev/aliexpress-dropshipping'
+    version: 1.3.0
+    published: '2026-08-06'
+    description: AliExpress Dropshipping integration for Amboras - storefront preflight and admin settings
+third_party_authorable: unknown
+gaps:
+- No public plugin-development guide, slot reference page or component documentation on amboras.com.
+- The /apps-and-integrations page names only categories (Payments, Email, Shipping, Ads, Analytics) and
+  states "Every integration below is already built into Amboras" - the list it promises does not render.
+- None of the 33 packages ships a README or declares a license or repository in its npm metadata.

@@ -1,0 +1,70 @@
+generated: '2026-08-13'
+method: searched
+source: https://github.com/Amboras/store-my-store-ju0t/tree/main/storefront/.claude
+note: >-
+  These are NOT authored by API Evangelist. Amboras ships a set of agent operating
+  instructions inside every storefront it provisions - storefront/CLAUDE.md plus a
+  storefront/.claude/ directory of seven task-scoped instruction files - and those
+  repositories are public under the github.com/Amboras organization (458 public
+  storefront repos as of 2026-08-13). The files were confirmed byte-identical across
+  three independently provisioned stores (store-my-store-ju0t, -n3z4, -orvm; md5
+  e7ea1b8108c4680affe283031224bcd8 for products.md in all three), which establishes
+  them as Amboras template content rather than one merchant's local notes. They are
+  saved here VERBATIM. They are written for a coding agent editing a Next.js
+  storefront against the Amboras-operated Medusa v2 backend, not as callable API
+  workflows, so operations are named as Medusa JS SDK calls and storefront file paths
+  rather than OpenAPI operationIds - Amboras publishes no OpenAPI to ground those in.
+skill_count: 8
+skills:
+  - file: amboras-storefront-agent-guide.md
+    name: Amboras storefront agent guide
+    original: storefront/CLAUDE.md
+    source: https://github.com/Amboras/store-my-store-ju0t/blob/main/storefront/CLAUDE.md
+    description: >-
+      Full operating guide for an agent working on an Amboras storefront - tech stack,
+      project structure, data-fetching patterns, pricing semantics (all prices in cents),
+      auth flow, cart, checkout state machine, theming.
+    surfaces:
+      - Medusa JS SDK (lib/medusa-client.ts)
+      - X-Store-Environment-ID multi-tenant header
+      - /store/product-extensions/products/{id}/variants
+  - file: amboras-analytics.md
+    name: Analytics
+    original: storefront/.claude/analytics.md
+    source: https://github.com/Amboras/store-my-store-ju0t/blob/main/storefront/.claude/analytics.md
+    description: >-
+      First-party analytics event model - page_view, add_to_cart, begin_checkout,
+      purchase - batched (max 20) and flushed every 3 seconds to
+      {MEDUSA_BACKEND_URL}/store/analytics/events, consent-gated on the amboras_consent cookie.
+  - file: amboras-customers.md
+    name: Customers
+    original: storefront/.claude/customers.md
+    source: https://github.com/Amboras/store-my-store-ju0t/blob/main/storefront/.claude/customers.md
+    description: >-
+      Customer account surface - sdk.store.customer.retrieve/update, listAddresses,
+      createAddress, sdk.auth.login/register with the emailpass provider.
+  - file: amboras-discounts.md
+    name: Discounts
+    original: storefront/.claude/discounts.md
+    source: https://github.com/Amboras/store-my-store-ju0t/blob/main/storefront/.claude/discounts.md
+    description: Promotions, discount codes and sale-price display on the storefront.
+  - file: amboras-inventory.md
+    name: Inventory
+    original: storefront/.claude/inventory.md
+    source: https://github.com/Amboras/store-my-store-ju0t/blob/main/storefront/.claude/inventory.md
+    description: Stock levels, backorders and inventory messaging on the PDP and in the cart.
+  - file: amboras-online-store.md
+    name: Online store
+    original: storefront/.claude/online-store.md
+    source: https://github.com/Amboras/store-my-store-ju0t/blob/main/storefront/.claude/online-store.md
+    description: Theme, layout and storefront-wide presentation surface.
+  - file: amboras-orders.md
+    name: Orders
+    original: storefront/.claude/orders.md
+    source: https://github.com/Amboras/store-my-store-ju0t/blob/main/storefront/.claude/orders.md
+    description: Order retrieval, order history and post-purchase surfaces.
+  - file: amboras-products.md
+    name: Products
+    original: storefront/.claude/products.md
+    source: https://github.com/Amboras/store-my-store-ju0t/blob/main/storefront/.claude/products.md
+    description: Product listing, product detail, variants and calculated pricing.

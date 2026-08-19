@@ -1,0 +1,124 @@
+generated: '2026-08-13'
+method: searched
+source: https://www.amboras.com/security
+docs:
+  - https://www.amboras.com/security
+  - https://www.amboras.com/privacy
+  - https://www.amboras.com/pricing
+note: >-
+  Assertions Amboras makes about itself on its public /security page, plus what could be
+  independently observed on the wire on 2026-08-13. Every compliance claim below is
+  SELF-REPORTED: Amboras publishes no audit report, no trust portal, no certificate number
+  and no auditor name, and there is no third-party trust center to verify against. The
+  wording is captured as published - note "HIPAA Ready", which is a readiness statement and
+  not a certification. Treat the certifications as claims, and the probed rows as facts.
+standards:
+  - id: tls
+    conforms: true
+    verified: probed
+    evidence: >-
+      www.amboras.com negotiates TLSv1.3 with HSTS max-age 63072000 (two years). The
+      /security page claims "End-to-end encryption for data in transit (TLS 1.3)".
+  - id: oauth2
+    conforms: partial
+    verified: searched
+    evidence: >-
+      "OAuth integration (Google, GitHub)" for dashboard sign-in. No authorization-server
+      metadata is published - /.well-known/oauth-authorization-server and
+      /.well-known/oauth-protected-resource return 404 on all three Amboras hosts - and no
+      scope reference exists, so the OAuth surface is asserted but not discoverable.
+  - id: oidc
+    conforms: false
+    verified: probed
+    evidence: /.well-known/openid-configuration returns 404 on www., api. and admin.amboras.com.
+  - id: jwt
+    conforms: true
+    verified: searched
+    evidence: >-
+      "JWT-based authentication with refresh tokens", "httpOnly cookies for secure token
+      storage". GET https://api.amboras.com/admin returns 401 {"message":"Unauthorized"}.
+  - id: rfc9457
+    conforms: false
+    verified: probed
+    evidence: >-
+      Errors are returned as a vendor envelope {"type","message"} with content-type
+      application/json, not application/problem+json. Unrouted paths return HTML.
+  - id: rfc9116
+    conforms: false
+    verified: probed
+    evidence: >-
+      No /.well-known/security.txt on any host (404), despite a published responsible
+      disclosure program and a security@amboras.com contact - the policy exists, the
+      machine-readable pointer to it does not.
+  - id: w3c-trace-context
+    conforms: true
+    verified: probed
+    evidence: >-
+      api.amboras.com returns a traceparent header
+      (00-02255dc4f7ce09e2295b4b89cbb951e3-f2f94917f2bde361-00) alongside x-trace-id on
+      successful responses.
+  - id: pagination
+    conforms: true
+    verified: searched
+    evidence: limit/offset with count in the response envelope (Medusa v2 convention).
+  - id: idempotency
+    conforms: unknown
+    verified: searched
+    evidence: No idempotency key or retry-safety rule is documented on any Amboras surface.
+  - id: openapi
+    conforms: false
+    verified: probed
+    evidence: >-
+      No OpenAPI or Swagger document is served on any Amboras host. Probed
+      /openapi.json, /openapi.yaml, /swagger.json, /v1/openapi.json, /api-docs, /docs,
+      /redoc, /swagger/v1/swagger.json, /api-json and /docs/openapi.json on
+      api.amboras.com (all 404) and /openapi.json on www.amboras.com (404).
+  - id: graphql
+    conforms: false
+    verified: probed
+    evidence: https://api.amboras.com/graphql returns 404.
+  - id: dnssec
+    conforms: false
+    verified: probed
+    evidence: amboras.com is not DNSSEC-signed. See security/amboras-domain-security.yml.
+  - id: dmarc
+    conforms: false
+    verified: probed
+    evidence: No DMARC record on amboras.com; SPF is present. See security/amboras-domain-security.yml.
+compliance_claims:
+  self_reported: true
+  independently_verified: false
+  source: https://www.amboras.com/security
+  section: Compliance and certifications
+  claims:
+    - name: SOC 2 Type II
+      as_published: Audited security controls
+    - name: ISO 27001
+      as_published: Information security management
+    - name: PCI DSS
+      as_published: Payment card security
+    - name: HIPAA Ready
+      as_published: Healthcare data readiness
+      caveat: Readiness, not certification. Captured verbatim.
+    - name: GDPR
+      as_published: EU data protection
+    - name: CCPA
+      as_published: California privacy compliance
+  enterprise_only:
+    entitlements:
+      - SCIM
+      - audit log
+      - sandbox
+    note: Listed as Enterprise-tier entitlements on https://www.amboras.com/pricing, not platform-wide.
+  incident_response:
+    breach_notification: within 72 hours of a security incident
+    source: https://www.amboras.com/security
+subprocessors_disclosed:
+  - name: Supabase
+    role: Authentication and database
+  - name: Stripe
+    role: Payment processing, PCI DSS Level 1
+  - name: Fly.io
+    role: Infrastructure hosting
+  - name: AWS
+    role: Backup and storage

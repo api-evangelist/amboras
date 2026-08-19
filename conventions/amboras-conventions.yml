@@ -1,0 +1,129 @@
+generated: '2026-08-13'
+method: searched
+source: https://github.com/Amboras/store-my-store-ju0t/blob/main/storefront/CLAUDE.md
+docs:
+  - https://github.com/Amboras/store-my-store-ju0t/blob/main/README.md
+  - https://github.com/Amboras/store-my-store-ju0t/blob/main/storefront/CLAUDE.md
+  - https://www.amboras.com/security
+note: >-
+  Cross-cutting runtime semantics for the Amboras-operated backend at api.amboras.com,
+  read from Amboras's own published storefront template and confirmed by live
+  unauthenticated probes on 2026-08-13. Amboras publishes no OpenAPI, so nothing here is
+  derived from a spec. The underlying engine is Medusa v2, which Amboras operates as a
+  shared multi-tenant "Medusa Backend Orchestrator"; conventions that are Medusa's rather
+  than Amboras's are marked with origin: medusa-v2 so this file is never mistaken for an
+  Amboras-authored contract.
+base_url: https://api.amboras.com
+auth_style:
+  summary: >-
+    Publishable API key header on the Store API, JWT bearer on the Admin API, plus a
+    mandatory tenant header on every call.
+  headers:
+    - x-publishable-api-key
+    - X-Store-Environment-ID
+    - Authorization (Bearer JWT, admin)
+  see: authentication/amboras-authentication.yml
+multi_tenancy:
+  header: X-Store-Environment-ID
+  required: true
+  origin: amboras
+  description: >-
+    Amboras's own routing convention, not part of Medusa. One api.amboras.com host serves
+    every merchant store; the orchestrator uses this header to route the query to the
+    correct store database. The Medusa JS SDK carries it via globalHeaders on every call.
+  evidence: storefront template README, "How It Works"
+idempotency:
+  supported: unknown
+  documented: false
+  note: >-
+    No idempotency key, retry-safety rule or replay window is documented anywhere on
+    amboras.com or in the storefront template, and none was observable unauthenticated.
+    No Idempotency pointer is emitted in apis.yml - recording the absence rather than
+    claiming a capability.
+pagination:
+  style: limit-offset
+  origin: medusa-v2
+  params:
+    - limit
+    - offset
+  evidence: >-
+    Amboras's published hooks documentation shows useProducts({ limit: 100, category_id })
+    and medusaClient.store.product.list({ handle, region_id, fields }).
+  response_fields:
+    - count
+    - offset
+    - limit
+field_selection:
+  supported: true
+  origin: medusa-v2
+  param: fields
+  example: "fields: '*variants.calculated_price'"
+  note: >-
+    Dotted expansion path syntax; Amboras's product detail page uses it server-side to pull
+    calculated prices in the same round trip.
+tracing:
+  supported: true
+  method: probed
+  headers:
+    - traceparent
+    - x-trace-id
+  standard: W3C Trace Context
+  evidence: >-
+    GET https://api.amboras.com/health returned traceparent:
+    00-02255dc4f7ce09e2295b4b89cbb951e3-f2f94917f2bde361-00 and x-trace-id:
+    02255dc4f7ce09e2295b4b89cbb951e3 on 2026-08-13. The 400 response on /store/products
+    carries no traceparent, so tracing appears to be emitted after the publishable-key
+    guard, not on rejected requests.
+versioning:
+  scheme: none-published
+  url_versioning: false
+  header_versioning: false
+  note: >-
+    Routes are unversioned (/store/*, /admin/*). No API version header, no dated version
+    scheme, and no version negotiation is documented. Product change is communicated only
+    through the human changelog at https://www.amboras.com/changelog.
+error_envelope:
+  format: vendor
+  rfc9457: false
+  shape:
+    type: string
+    message: string
+  see: errors/amboras-problem-types.yml
+rate_limit_signaling:
+  headers_observed: none
+  note: >-
+    No X-RateLimit-*, RateLimit-* or Retry-After header appeared on any probed response
+    (200 /health, 400 /store/*, 401 /admin). See rate-limits/amboras-rate-limits.yml.
+money:
+  representation: minor units
+  note: >-
+    "All prices are in cents (divide by 100 for display)" - Amboras storefront guide.
+    calculated_price.calculated_amount is the current price including region pricing, taxes
+    and discounts; calculated_price.currency_code carries the currency; compare_at_price is
+    the strikethrough original and comes from the Amboras-added product-extensions endpoint,
+    not the Medusa SDK.
+amboras_added_endpoints:
+  note: >-
+    Endpoints Amboras layers on top of stock Medusa, named in its own storefront
+    documentation. Each was probed unauthenticated on 2026-08-13 and returns the
+    publishable-key guard (HTTP 400) before routing, so their existence is documented
+    rather than independently confirmed.
+  endpoints:
+    - path: /store/product-extensions/products/{id}/variants
+      purpose: compare-at prices, not available through the Medusa SDK
+      requires: [x-publishable-api-key, X-Store-Environment-ID]
+    - path: /store/analytics/events
+      purpose: first-party analytics event ingest, batched max 20, flushed every 3 seconds
+      requires: [x-publishable-api-key, X-Store-Environment-ID]
+    - path: /store/stripe-connect
+      purpose: Stripe Connect configuration for the storefront payment step
+      requires: [x-publishable-api-key, X-Store-Environment-ID]
+cors:
+  note: >-
+    Store CORS is configured per deployment (store_cors in medusa-config.js per the template
+    troubleshooting section). api.amboras.com returns
+    access-control-allow-credentials: true and vary: Origin.
+edge:
+  cdn: Amazon CloudFront
+  origin_stack: "Express (x-powered-by: Express) behind CloudFront"
+  hosting_disclosed: "Fly.io (infrastructure), AWS (backup and storage) - https://www.amboras.com/security"

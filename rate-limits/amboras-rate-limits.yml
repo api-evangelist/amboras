@@ -1,0 +1,43 @@
+generated: '2026-08-13'
+method: probed
+source: live unauthenticated probes of https://api.amboras.com on 2026-08-13
+limit_count: 0
+headers_published: none
+headers_observed: none
+retry_after_observed: false
+exhaustion_status: unknown
+note: >-
+  An honest zero. Amboras publishes no rate-limit documentation of any kind - there is no
+  developer portal, no API reference, and the pricing page meters "AI usage" as a multiple
+  of the entry tier ("5x more AI usage than Basic", "20x more AI usage than Basic") without
+  ever stating an absolute number, a window, or a unit. On the wire, no rate-limit signal
+  was returned on any response: GET /health (200), GET /store/products (400) and GET /admin
+  (401) all came back with no X-RateLimit-*, no RateLimit-*, and no Retry-After. Because
+  nothing is published and nothing is signalled, NO RateLimits pointer is emitted in
+  apis.yml - the artifact records a verified absence and must not be read as a rate-limit
+  posture the provider has.
+probes:
+  - url: https://api.amboras.com/health
+    status: 200
+    rate_limit_headers: []
+    other_headers: [traceparent, x-trace-id, x-powered-by, via, x-amz-cf-id]
+  - url: https://api.amboras.com/store/products
+    status: 400
+    rate_limit_headers: []
+  - url: https://api.amboras.com/admin
+    status: 401
+    rate_limit_headers: []
+documented_quotas:
+  - scope: account
+    unit: AI usage
+    limit: null
+    note: >-
+      Relative only. Basic = baseline, Grow = "5x more AI usage than Basic",
+      Advanced = "20x more AI usage than Basic". No absolute figure, window or reset is
+      published, so a buyer cannot compute what they are getting.
+    source: https://www.amboras.com/pricing
+  - scope: account
+    unit: stores
+    limit: 1 / 5 / 20 / unlimited
+    note: Hard product limits per tier, not API rate limits.
+    source: https://www.amboras.com/pricing

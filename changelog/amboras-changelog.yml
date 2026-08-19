@@ -1,0 +1,118 @@
+generated: '2026-08-13'
+method: searched
+source: https://www.amboras.com/changelog
+url: https://www.amboras.com/changelog
+scheme: dated product changelog, grouped into weekly ranges; no semantic version numbers
+versioned: false
+current_version: null
+note: 'Amboras publishes a dated, human-written product changelog on its marketing site - 78 entries between
+  2026-04-16 and 2026-06-01, grouped by week. It is a product changelog, not an API changelog: there are
+  no version numbers, no breaking-change markers, and no entry describes an API contract change. The page
+  states "Small improvements to the admin, shipped continuously. Here''s what landed in the last few weeks"
+  - but the newest entry is dated 2026-06-01, roughly ten weeks before this pass on 2026-08-13, so the
+  feed is stale relative to its own framing. The year is not printed on the page; 2026 is established
+  by the company''s public GitHub organization, created 2026-04-10, whose first storefront repos were
+  provisioned 2026-04-13, three days before the first changelog entry.'
+entry_count: 78
+first_entry: '2026-04-16'
+latest_entry: '2026-06-01'
+days_stale_at_capture: 73
+breaking_changes_flagged: 0
+entries:
+- date: '2026-06-01'
+  title: Razorpay, natively.
+  summary: Connect Razorpay from Settings → Integrations and accept UPI, cards, and netbanking from Indian
+    shoppers at checkout.
+- date: '2026-06-01'
+  title: Affiliate marketing with GoAffPro.
+  summary: Set up a referral program in minutes — connect GoAffPro and start tracking partner sales without
+    leaving the admin.
+- date: '2026-05-31'
+  title: Free shipping, per region.
+  summary: Set different free-shipping thresholds for each country you sell in — $50 over US orders, ₹2000
+    over Indian orders, your call.
+- date: '2026-05-31'
+  title: Customer tab polish.
+  summary: A cleaner customers table with filters that stick and faster loads when you have thousands
+    of records.
+- date: '2026-05-30'
+  title: The AI knows which page you’re on.
+  summary: Ask the chat assistant for help and it already sees what you’re looking at — no need to re-explain
+    whether you mean Orders, Products, or Analytics.
+- date: '2026-05-28'
+  title: Invite your team.
+  summary: Add teammates to your store with Admin or Member roles and per-store permissions. Email invites,
+    token-based onboarding, more controls coming next.
+- date: '2026-05-28'
+  title: Apple Pay, in two clicks.
+  summary: Connect your custom domain to Apple Pay from the admin — no terminal commands, no signed files.
+- date: '2026-05-28'
+  title: Payment methods, redesigned.
+  summary: A cleaner Stripe Connect onboarding flow that mirrors the rest of Settings.
+- date: '2026-05-26'
+  title: Skydropx in Mexico.
+  summary: Connect Skydropx from Settings → Integrations and ship across Mexico with rated labels and
+    tracking.
+- date: '2026-05-26'
+  title: No more trial.
+  summary: New stores skip the trial and pick a plan up front. Cleaner signup, no countdown timer. Existing
+    trials keep running.
+- date: '2026-05-25'
+  title: Talk to a human.
+  summary: A new call widget on amboras.com — book a 20-minute walkthrough with a founder directly from
+    the marketing site.
+- date: '2026-05-24'
+  title: A checkout that converts 20% higher.
+  summary: Rebuilt end-to-end around trust. Real payment-method logos (Visa, Mastercard, PayPal, Amex)
+    replace generic icons, country and dialing code auto-detect on the phone step, security and shipping
+    reassurance live above the fold, and error states stop dead-ending the buyer. Measured against the
+    old flow on real traffic, the new checkout lifts paid conversion by roughly 20%.
+- date: '2026-05-24'
+  title: Custom product metadata.
+  summary: Attach any key/value metadata to a product and use it to power custom storefront blocks, integrations,
+    or merchandising rules. No schema forks, no plugins required.
+- date: '2026-05-24'
+  title: Backorders, finally.
+  summary: Sell past zero. Flip "allow backorder" on a variant and Amboras keeps taking orders while inventory
+    catches up, with the right messaging on the PDP and in the cart.
+- date: '2026-05-24'
+  title: Add a region in two clicks.
+  summary: New add-region dialog with a curated country catalog. Country and currency editing now properly
+    lock once a store has multiple regions, so a live setup can never be broken by a stray click.
+- date: '2026-05-23'
+  title: Multi-region management.
+  summary: Add or remove regions and countries straight from the admin. Payment providers mirror automatically
+    onto every new region, so a fresh market is ready to take orders the moment you create it.
+- date: '2026-05-23'
+  title: Unguessable store URLs.
+  summary: New stores ship with a crypto-random suffix in their slug, so preview URLs can’t be discovered
+    by walking sequential names. Quiet but important security upgrade.
+- date: '2026-05-22'
+  title: Queue messages while the AI works.
+  summary: Stop waiting on the agent. Stack up follow-up prompts and they run in order, animate in as
+    they start, and auto-pause the moment the AI asks you a question.
+- date: '2026-05-21'
+  title: BigCommerce and WooCommerce CSV imports.
+  summary: Two more migration paths into Amboras. Drop in a BigCommerce or WooCommerce product export
+    and we map, validate, and import the lot, same pipeline as the Shopify importer.
+- date: '2026-05-21'
+  title: Variant-level discounts.
+  summary: Promotions and buy-get rules can now target specific variants, not just whole products. Run
+    a Black Friday discount on a single color or size without touching the rest of the catalog.
+- date: '2026-05-21'
+  title: Guided shipping setup.
+  summary: A new "show it how" tour walks you through zones, rates, and delivery options in a few clicks.
+    The fastest path from new account to a store that can actually ship.
+- date: '2026-05-21'
+  title: Attach images straight from the welcome screen.
+  summary: Drop reference images into the very first message of any chat. The agent uses them to seed
+    your brand, products, or design direction before it builds anything.
+- date: '2026-05-20'
+  title: Paid-ads onboarding funnel.
+  summary: A quiz-style onboarding flow tuned for cold ad traffic, with UTM-based routing so signups always
+    land in the right experience. Built to convert paid clicks, not just curious browsers.
+- date: '2026-05-19'
+  title: Plan drawer opens on mobile.
+  summary: Upgrading from a phone now opens the plan picker as a clean drawer instead of bouncing through
+    extra screens. Pick, pay, done.
+entries_note: Recent window - the 24 most recent of 78 published entries.

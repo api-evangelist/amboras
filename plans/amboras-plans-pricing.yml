@@ -1,0 +1,118 @@
+generated: '2026-08-13'
+method: searched
+source: https://www.amboras.com/pricing
+url: https://www.amboras.com/pricing
+currency: USD
+billing_periods:
+  - monthly
+  - yearly
+yearly_discount: 20%
+prices_shown: monthly, billed monthly
+plan_count: 4
+note: >-
+  Amboras prices the PLATFORM, not an API. There is no API/usage pricing, no per-call rate,
+  no metered API quota and no developer tier - the units sold are stores, team seats, custom
+  domains and "AI usage", expressed as a multiple of the entry tier rather than an absolute
+  number. Read verbatim from the public pricing page on 2026-08-13. Note the page is
+  internally inconsistent: the plan cards name the entry tier "Basic", while the FAQ block on
+  the same page still calls it "Launch" ("What's the difference between Launch and Grow?",
+  "30-day launch guarantee on Launch, Grow & Advanced") - captured as published rather than
+  reconciled. The 2026-05-26 changelog entry "No more trial" records that new stores no
+  longer get a trial and pick a plan up front, which matches the trial: false already
+  recorded in accessModel.
+plans:
+  - name: Basic
+    price: 49
+    currency: USD
+    period: month
+    cta: Create store
+    tagline: Everything you need to start selling today.
+    included:
+      stores: 1
+      team_members: 1
+      ai_usage: baseline
+    features:
+      - Choose your AI model - Opus 5, Sonnet 4.6, GPT-5 and more
+      - AI Store Designer
+      - Unlimited AI product image enhancement
+      - Access to the full conversion feature library
+      - Email campaigns and flows
+      - Native product reviews, plus review email automations
+      - 150+ payment methods accepted
+      - High-converting checkout
+      - Custom domain
+      - 24/7 chat support
+  - name: Grow
+    price: 105
+    currency: USD
+    period: month
+    cta: Start selling
+    popular: true
+    tagline: Scale your brand with AI.
+    included:
+      stores: 5
+      team_members: 5
+      ai_usage: 5x Basic
+    features:
+      - Everything in Basic
+      - A/B/n testing
+      - Advanced analytics and cohort reporting
+      - Multi-currency, multi-language, auto tax
+      - Post-purchase upsells and abandoned cart recovery
+      - Priority chat support
+  - name: Advanced
+    price: 399
+    currency: USD
+    period: month
+    cta: Start scaling
+    tagline: Built for portfolios. Lowest fees, white-glove support.
+    included:
+      stores: 20
+      team_members: 20
+      custom_domains: 20
+      ai_usage: 20x Basic
+    features:
+      - Everything in Grow
+      - Autonomous A/B/n testing - variants, traffic and winners handled for you
+      - Dedicated CSM and private Slack channel
+      - 24/7 priority support
+      - White-label storefront option
+      - Custom AI fine-tuning on your brand voice
+  - name: Enterprise
+    price: null
+    price_label: Custom
+    currency: USD
+    period: null
+    cta: Contact Us
+    tagline: Volume pricing and dedicated support at scale.
+    included:
+      stores: unlimited
+      team_members: unlimited
+      custom_domains: unlimited
+    features:
+      - Everything in Advanced
+      - Clone your existing store into a parallel sandbox for A/B testing without touching production
+      - Custom agentic analytics - data restructured so AI agents can reason over it
+      - Custom attribution tracking across channels, campaigns and post-purchase flows
+      - Dedicated account manager and onboarding specialist
+      - Custom contract and SLA tailored to your business
+      - 24/7 priority phone and Slack support
+      - SOC 2, SCIM, audit log, sandbox
+      - B2B, net terms, quote-to-order
+      - White-label platform for agencies
+      - Lowest platform fee, custom volume pricing
+overage: not published
+platform_fee:
+  disclosed: false
+  note: >-
+    The Advanced and Enterprise tiers advertise "lowest fees" and "lowest platform fee",
+    which implies a transaction fee on every tier, but no fee percentage is published
+    anywhere on the pricing page.
+guarantees:
+  - name: 30-day launch guarantee
+    applies_to: [Launch/Basic, Grow, Advanced]
+    terms: >-
+      "Your store goes live within 24 hours, or we build it with you. If you do not make a
+      sale in your first 30 days on Launch, Grow, or Advanced, we refund every dollar."
+checkout: Stripe secure checkout
+cancellation: Cancel anytime, prorated billing on up/downgrade

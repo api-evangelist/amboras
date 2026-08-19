@@ -1,0 +1,72 @@
+generated: '2026-08-13'
+method: probed
+source: live unauthenticated probes of https://api.amboras.com on 2026-08-13
+format: vendor
+rfc9457: false
+note: >-
+  Amboras publishes no OpenAPI and no error reference page, so this catalog is not derived
+  from a spec and is not a complete registry. Every entry below was observed on a real
+  unauthenticated request to Amboras's own API host and is recorded with the exact status,
+  body and content type returned. The envelope is Medusa v2's ({"type","message"}) on
+  application routes; unrouted paths fall through to the Express default handler and return
+  HTML, which is itself a finding - an agent that only parses JSON will crash on a 404.
+envelope:
+  content_type: application/json; charset=utf-8
+  fields:
+    - name: type
+      description: machine-readable error class
+    - name: message
+      description: human-readable explanation
+problem_types:
+  - status: 400
+    type: not_allowed
+    title: Publishable API key required
+    observed_on:
+      - https://api.amboras.com/store
+      - https://api.amboras.com/store/products
+      - https://api.amboras.com/store/regions
+      - https://api.amboras.com/store/product-categories
+      - https://api.amboras.com/store/stripe-connect
+      - https://api.amboras.com/store/analytics/events
+    body: >-
+      {"type":"not_allowed","message":"Publishable API key required in the request header:
+      x-publishable-api-key. You can manage your keys in settings in the dashboard."}
+    remediation: >-
+      Send the store's publishable key (pk_ prefix) as x-publishable-api-key, and send
+      X-Store-Environment-ID alongside it. Keys are issued in the merchant dashboard at
+      admin.amboras.com; there is no public self-service key endpoint.
+    note: >-
+      This guard fires before routing, so a 400 here does not confirm the path exists.
+  - status: 401
+    type: null
+    title: Unauthorized
+    observed_on:
+      - https://api.amboras.com/admin
+      - https://api.amboras.com/admin/auth
+    body: '{"message":"Unauthorized"}'
+    remediation: Present a valid admin JWT as an Authorization Bearer token.
+    note: >-
+      The admin envelope omits `type` entirely - it is {"message"} only, not the
+      {"type","message"} shape the store routes use. Two different error shapes on one host.
+  - status: 404
+    type: null
+    title: Unrouted path (Express default handler)
+    content_type: text/html
+    observed_on:
+      - https://api.amboras.com/
+      - https://api.amboras.com/openapi.json
+      - https://api.amboras.com/graphql
+      - https://api.amboras.com/mcp
+    body: '<!DOCTYPE html> ... <pre>Cannot GET /openapi.json</pre>'
+    remediation: >-
+      None - the path does not exist. Callers must not assume JSON on 404; the API returns
+      an HTML body with content-type text/html for any unmatched route.
+success_probe:
+  - status: 200
+    path: /health
+    body: '{"status":"ok"}'
+    note: The only endpoint on api.amboras.com that answers a useful response anonymously.
+gaps:
+  - No RFC 9457 application/problem+json.
+  - No published error-code registry or error reference page on amboras.com.
+  - Inconsistent envelopes across /store (type+message), /admin (message) and unrouted paths (HTML).

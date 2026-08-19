@@ -1,0 +1,467 @@
+generated: '2026-08-13'
+method: searched
+source: https://registry.npmjs.org/-/v1/search?text=amboras
+note: Amboras publishes a first-party npm scope, @amboras-dev, carrying the storefront plugin/slot packages
+  its AI-built Next.js storefronts install. @amboras-dev/plugin-types is the shared contract ("Shared
+  slot names and base types for the Amboras plugin slot system"); every other package is a payment-provider
+  UI, analytics/ads pixel, or merchandising hook written against it. Versions and publish dates were read
+  from the npm registry metadata endpoint (registry.npmjs.org/<pkg>) on 2026-08-13. No package exists
+  under any Amboras name on PyPI (pypi.org/pypi/amboras/json -> 404), RubyGems, crates.io, Maven Central,
+  NuGet, pkg.go.dev or Packagist. None of these packages declares a license or a repository field in its
+  registry metadata, and none ships a README - an honest gap recorded as null rather than guessed.
+registries_checked:
+- registry: npm
+  result: 33 first-party packages under the @amboras-dev scope
+- registry: PyPI
+  result: 404 - no amboras package
+- registry: RubyGems
+  result: not published
+- registry: crates.io
+  result: not published
+- registry: Maven Central
+  result: not published
+- registry: NuGet
+  result: not published
+- registry: pkg.go.dev
+  result: not published
+- registry: Packagist
+  result: not published
+package_count: 33
+official_count: 33
+newest_publish: '2026-08-13'
+oldest_publish: '2026-04-19'
+packages:
+- name: '@amboras-dev/adyen'
+  language: typescript
+  registry: npm
+  official: true
+  version: 0.1.0
+  published: '2026-07-18'
+  first_published: '2026-07-18'
+  versions_published: 1
+  description: Adyen payment provider UI for Amboras storefronts
+  url: https://www.npmjs.com/package/@amboras-dev/adyen
+  metadata: https://registry.npmjs.org/@amboras-dev/adyen
+  license: null
+  repository: null
+- name: '@amboras-dev/airwallex'
+  language: typescript
+  registry: npm
+  official: true
+  version: 0.2.0
+  published: '2026-06-25'
+  first_published: '2026-06-25'
+  versions_published: 1
+  description: Airwallex payment provider UI for Amboras storefronts
+  url: https://www.npmjs.com/package/@amboras-dev/airwallex
+  metadata: https://registry.npmjs.org/@amboras-dev/airwallex
+  license: null
+  repository: null
+- name: '@amboras-dev/aliexpress-dropshipping'
+  language: typescript
+  registry: npm
+  official: true
+  version: 1.3.0
+  published: '2026-08-06'
+  first_published: '2026-08-03'
+  versions_published: 4
+  description: AliExpress Dropshipping integration for Amboras - storefront preflight and admin settings
+  url: https://www.npmjs.com/package/@amboras-dev/aliexpress-dropshipping
+  metadata: https://registry.npmjs.org/@amboras-dev/aliexpress-dropshipping
+  license: null
+  repository: null
+- name: '@amboras-dev/blog'
+  language: typescript
+  registry: npm
+  official: true
+  version: 0.2.0
+  published: '2026-06-20'
+  first_published: '2026-06-20'
+  versions_published: 1
+  description: Multi-blog CMS hooks + server helpers for Amboras storefronts
+  url: https://www.npmjs.com/package/@amboras-dev/blog
+  metadata: https://registry.npmjs.org/@amboras-dev/blog
+  license: null
+  repository: null
+- name: '@amboras-dev/checkoutcom'
+  language: typescript
+  registry: npm
+  official: true
+  version: 0.2.2
+  published: '2026-07-18'
+  first_published: '2026-07-17'
+  versions_published: 3
+  description: Checkout.com payment provider UI for Amboras storefronts
+  url: https://www.npmjs.com/package/@amboras-dev/checkoutcom
+  metadata: https://registry.npmjs.org/@amboras-dev/checkoutcom
+  license: null
+  repository: null
+- name: '@amboras-dev/contact-form'
+  language: typescript
+  registry: npm
+  official: true
+  version: 1.0.0
+  published: '2026-05-27'
+  first_published: '2026-05-27'
+  versions_published: 1
+  description: Contact form submission hook for Amboras storefronts
+  url: https://www.npmjs.com/package/@amboras-dev/contact-form
+  metadata: https://registry.npmjs.org/@amboras-dev/contact-form
+  license: null
+  repository: null
+- name: '@amboras-dev/demo'
+  language: typescript
+  registry: npm
+  official: true
+  version: 0.1.0
+  published: '2026-04-19'
+  first_published: '2026-04-19'
+  versions_published: 1
+  description: Demo package to verify the publish pipeline
+  url: https://www.npmjs.com/package/@amboras-dev/demo
+  metadata: https://registry.npmjs.org/@amboras-dev/demo
+  license: null
+  repository: null
+- name: '@amboras-dev/dynamic-metadata'
+  language: typescript
+  registry: npm
+  official: true
+  version: 1.0.0
+  published: '2026-04-29'
+  first_published: '2026-04-29'
+  versions_published: 1
+  description: Server-side metadata generation + brand/product/collection fetchers for Amboras storefronts
+  url: https://www.npmjs.com/package/@amboras-dev/dynamic-metadata
+  metadata: https://registry.npmjs.org/@amboras-dev/dynamic-metadata
+  license: null
+  repository: null
+- name: '@amboras-dev/engraving'
+  language: typescript
+  registry: npm
+  official: true
+  version: 0.2.0
+  published: '2026-06-22'
+  first_published: '2026-06-22'
+  versions_published: 1
+  description: Engraving personalization hooks + helpers for Amboras storefronts
+  url: https://www.npmjs.com/package/@amboras-dev/engraving
+  metadata: https://registry.npmjs.org/@amboras-dev/engraving
+  license: null
+  repository: null
+- name: '@amboras-dev/exit-intent'
+  language: typescript
+  registry: npm
+  official: true
+  version: 0.3.0
+  published: '2026-06-27'
+  first_published: '2026-06-27'
+  versions_published: 2
+  description: Exit-intent logic layer for Amboras storefronts — hooks, config getter, and constants for
+    capturing why shoppers leave a non-empty cart
+  url: https://www.npmjs.com/package/@amboras-dev/exit-intent
+  metadata: https://registry.npmjs.org/@amboras-dev/exit-intent
+  license: null
+  repository: null
+- name: '@amboras-dev/ga4'
+  language: typescript
+  registry: npm
+  official: true
+  version: 0.3.7
+  published: '2026-08-13'
+  first_published: '2026-06-18'
+  versions_published: 8
+  description: Google Analytics 4 (gtag.js + Measurement Protocol) hooks for Amboras storefronts
+  url: https://www.npmjs.com/package/@amboras-dev/ga4
+  metadata: https://registry.npmjs.org/@amboras-dev/ga4
+  license: null
+  repository: null
+- name: '@amboras-dev/goaffpro'
+  language: typescript
+  registry: npm
+  official: true
+  version: 0.5.0
+  published: '2026-05-29'
+  first_published: '2026-05-29'
+  versions_published: 3
+  description: GoAffPro affiliate-marketing storefront integration for Amboras — loader.js injection +
+    ?ref cookie capture, props-driven from the unified plugin-config registry
+  url: https://www.npmjs.com/package/@amboras-dev/goaffpro
+  metadata: https://registry.npmjs.org/@amboras-dev/goaffpro
+  license: null
+  repository: null
+- name: '@amboras-dev/google-ads'
+  language: typescript
+  registry: npm
+  official: true
+  version: 1.1.3
+  published: '2026-07-29'
+  first_published: '2026-06-24'
+  versions_published: 4
+  description: Google Ads (gtag.js conversion tracking + Enhanced Conversions + Consent Mode) hooks for
+    Amboras storefronts
+  url: https://www.npmjs.com/package/@amboras-dev/google-ads
+  metadata: https://registry.npmjs.org/@amboras-dev/google-ads
+  license: null
+  repository: null
+- name: '@amboras-dev/hello-world'
+  language: typescript
+  registry: npm
+  official: true
+  version: 0.1.0
+  published: '2026-04-20'
+  first_published: '2026-04-20'
+  versions_published: 1
+  description: Minimal hello-world plugin used to exercise the orchestrator admin surface end-to-end.
+  url: https://www.npmjs.com/package/@amboras-dev/hello-world
+  metadata: https://registry.npmjs.org/@amboras-dev/hello-world
+  license: null
+  repository: null
+- name: '@amboras-dev/iyzico'
+  language: typescript
+  registry: npm
+  official: true
+  version: 0.2.0
+  published: '2026-07-30'
+  first_published: '2026-07-30'
+  versions_published: 1
+  description: iyzico payment provider types for Amboras storefronts
+  url: https://www.npmjs.com/package/@amboras-dev/iyzico
+  metadata: https://registry.npmjs.org/@amboras-dev/iyzico
+  license: null
+  repository: null
+- name: '@amboras-dev/klaviyo'
+  language: typescript
+  registry: npm
+  official: true
+  version: 0.5.0
+  published: '2026-06-17'
+  first_published: '2026-04-28'
+  versions_published: 6
+  description: Klaviyo storefront integration for Amboras — provider, identify/track hooks, server-side
+    public-key fetcher
+  url: https://www.npmjs.com/package/@amboras-dev/klaviyo
+  metadata: https://registry.npmjs.org/@amboras-dev/klaviyo
+  license: null
+  repository: null
+- name: '@amboras-dev/meta-ads'
+  language: typescript
+  registry: npm
+  official: true
+  version: 3.1.7
+  published: '2026-08-07'
+  first_published: '2026-04-28'
+  versions_published: 10
+  description: Meta Pixel + Conversions API hooks for Amboras storefronts
+  url: https://www.npmjs.com/package/@amboras-dev/meta-ads
+  metadata: https://registry.npmjs.org/@amboras-dev/meta-ads
+  license: null
+  repository: null
+- name: '@amboras-dev/meta-shops-checkout'
+  language: typescript
+  registry: npm
+  official: true
+  version: 0.2.0
+  published: '2026-06-10'
+  first_published: '2026-06-10'
+  versions_published: 1
+  description: Meta Shops 'checkout on another website' handoff for Amboras storefronts — builds a fresh
+    cart (line items + discount) from the deep-link URL params and activates it for checkout
+  url: https://www.npmjs.com/package/@amboras-dev/meta-shops-checkout
+  metadata: https://registry.npmjs.org/@amboras-dev/meta-shops-checkout
+  license: null
+  repository: null
+- name: '@amboras-dev/mollie'
+  language: typescript
+  registry: npm
+  official: true
+  version: 0.2.0
+  published: '2026-07-20'
+  first_published: '2026-07-20'
+  versions_published: 1
+  description: Mollie payment provider types for Amboras storefronts
+  url: https://www.npmjs.com/package/@amboras-dev/mollie
+  metadata: https://registry.npmjs.org/@amboras-dev/mollie
+  license: null
+  repository: null
+- name: '@amboras-dev/momo'
+  language: typescript
+  registry: npm
+  official: true
+  version: 0.2.0
+  published: '2026-07-29'
+  first_published: '2026-07-29'
+  versions_published: 1
+  description: MoMo payment provider types for Amboras storefronts
+  url: https://www.npmjs.com/package/@amboras-dev/momo
+  metadata: https://registry.npmjs.org/@amboras-dev/momo
+  license: null
+  repository: null
+- name: '@amboras-dev/omnisend'
+  language: typescript
+  registry: npm
+  official: true
+  version: 1.0.1
+  published: '2026-07-18'
+  first_published: '2026-07-17'
+  versions_published: 2
+  description: Omnisend browser events + slot components for Amboras storefronts
+  url: https://www.npmjs.com/package/@amboras-dev/omnisend
+  metadata: https://registry.npmjs.org/@amboras-dev/omnisend
+  license: null
+  repository: null
+- name: '@amboras-dev/payoo'
+  language: typescript
+  registry: npm
+  official: true
+  version: 0.2.0
+  published: '2026-07-29'
+  first_published: '2026-07-29'
+  versions_published: 1
+  description: Payoo payment provider types for Amboras storefronts
+  url: https://www.npmjs.com/package/@amboras-dev/payoo
+  metadata: https://registry.npmjs.org/@amboras-dev/payoo
+  license: null
+  repository: null
+- name: '@amboras-dev/paystack'
+  language: typescript
+  registry: npm
+  official: true
+  version: 0.2.0
+  published: '2026-07-09'
+  first_published: '2026-07-09'
+  versions_published: 1
+  description: Paystack payment provider UI for Amboras storefronts
+  url: https://www.npmjs.com/package/@amboras-dev/paystack
+  metadata: https://registry.npmjs.org/@amboras-dev/paystack
+  license: null
+  repository: null
+- name: '@amboras-dev/pinterest'
+  language: typescript
+  registry: npm
+  official: true
+  version: 1.2.0
+  published: '2026-07-13'
+  first_published: '2026-07-12'
+  versions_published: 2
+  description: Pinterest Tag + Conversions API hooks for Amboras storefronts
+  url: https://www.npmjs.com/package/@amboras-dev/pinterest
+  metadata: https://registry.npmjs.org/@amboras-dev/pinterest
+  license: null
+  repository: null
+- name: '@amboras-dev/plugin-types'
+  language: typescript
+  registry: npm
+  official: true
+  version: 1.1.0
+  published: '2026-05-03'
+  first_published: '2026-05-03'
+  versions_published: 3
+  description: Shared slot names and base types for the Amboras plugin slot system
+  url: https://www.npmjs.com/package/@amboras-dev/plugin-types
+  metadata: https://registry.npmjs.org/@amboras-dev/plugin-types
+  license: null
+  repository: null
+- name: '@amboras-dev/profitmetrics'
+  language: typescript
+  registry: npm
+  official: true
+  version: 1.0.0
+  published: '2026-07-16'
+  first_published: '2026-07-16'
+  versions_published: 1
+  description: ProfitMetrics server-side hybrid integration (order sync + client bundle) for Amboras storefronts
+  url: https://www.npmjs.com/package/@amboras-dev/profitmetrics
+  metadata: https://registry.npmjs.org/@amboras-dev/profitmetrics
+  license: null
+  repository: null
+- name: '@amboras-dev/razorpay'
+  language: typescript
+  registry: npm
+  official: true
+  version: 2.0.0
+  published: '2026-05-29'
+  first_published: '2026-05-29'
+  versions_published: 1
+  description: Razorpay payment provider UI for Amboras storefronts
+  url: https://www.npmjs.com/package/@amboras-dev/razorpay
+  metadata: https://registry.npmjs.org/@amboras-dev/razorpay
+  license: null
+  repository: null
+- name: '@amboras-dev/reviews'
+  language: typescript
+  registry: npm
+  official: true
+  version: 0.5.0
+  published: '2026-07-10'
+  first_published: '2026-04-19'
+  versions_published: 6
+  description: Product reviews hooks for Amboras storefronts
+  url: https://www.npmjs.com/package/@amboras-dev/reviews
+  metadata: https://registry.npmjs.org/@amboras-dev/reviews
+  license: null
+  repository: null
+- name: '@amboras-dev/snapchat-ads'
+  language: typescript
+  registry: npm
+  official: true
+  version: 2.0.0
+  published: '2026-07-27'
+  first_published: '2026-07-27'
+  versions_published: 1
+  description: Snap Pixel + Snap Conversions API v3 hooks for Amboras storefronts
+  url: https://www.npmjs.com/package/@amboras-dev/snapchat-ads
+  metadata: https://registry.npmjs.org/@amboras-dev/snapchat-ads
+  license: null
+  repository: null
+- name: '@amboras-dev/tidio'
+  language: typescript
+  registry: npm
+  official: true
+  version: 0.2.0
+  published: '2026-06-19'
+  first_published: '2026-06-19'
+  versions_published: 1
+  description: Tidio AI chatbot storefront integration for Amboras — widget embed component
+  url: https://www.npmjs.com/package/@amboras-dev/tidio
+  metadata: https://registry.npmjs.org/@amboras-dev/tidio
+  license: null
+  repository: null
+- name: '@amboras-dev/tiktok-ads'
+  language: typescript
+  registry: npm
+  official: true
+  version: 2.0.0
+  published: '2026-06-19'
+  first_published: '2026-05-16'
+  versions_published: 2
+  description: TikTok Pixel + Events API hooks for Amboras storefronts
+  url: https://www.npmjs.com/package/@amboras-dev/tiktok-ads
+  metadata: https://registry.npmjs.org/@amboras-dev/tiktok-ads
+  license: null
+  repository: null
+- name: '@amboras-dev/trustpilot'
+  language: typescript
+  registry: npm
+  official: true
+  version: 2.0.0
+  published: '2026-07-28'
+  first_published: '2026-07-28'
+  versions_published: 1
+  description: Trustpilot TrustBox widget + invitation hooks for Amboras storefronts
+  url: https://www.npmjs.com/package/@amboras-dev/trustpilot
+  metadata: https://registry.npmjs.org/@amboras-dev/trustpilot
+  license: null
+  repository: null
+- name: '@amboras-dev/vnpay'
+  language: typescript
+  registry: npm
+  official: true
+  version: 0.1.0
+  published: '2026-07-12'
+  first_published: '2026-07-12'
+  versions_published: 1
+  description: VNPay payment provider types for Amboras storefronts
+  url: https://www.npmjs.com/package/@amboras-dev/vnpay
+  metadata: https://registry.npmjs.org/@amboras-dev/vnpay
+  license: null
+  repository: null
