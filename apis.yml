@@ -121,6 +121,8 @@ apis:
   - type: ErrorCatalog
     url: errors/amboras-problem-types.yml
 common:
+- type: RateLimits
+  url: rate-limits/amboras-rate-limits.yml
 - type: TrustCenter
   url: security/amboras-trust-center.yml
 - type: VulnerabilityDisclosure
